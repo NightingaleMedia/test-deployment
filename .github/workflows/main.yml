@@ -8,16 +8,16 @@ jobs:
 
     steps:
       - name: ls -a via ssh
-  uses: fifsky/ssh-action@master
-    with:
-      command: |
-        cd public_html
-        var=“$(date + “%m-%d-%Y_%H%M”)”
-        mkdir test-github-deploy-$var
-        mv glassroom-test/. test-github-deploy-$var
-      host: ${{ secrets.HOST }}
-      user: xeghpcmy
-      # password: ${{ secrets.PASSPHRASE }}
-      key: ${{ secrets.PRIVATE_KEY}}
-    env:
-      CI: true
+        uses: fifsky/ssh-action@master
+          with:
+            command: |
+              cd public_html
+              var=“$(date + “%m-%d-%Y_%H%M”)”
+              mkdir test-github-deploy-$var
+              mv glassroom-test/. test-github-deploy-$var
+            host: ${{ secrets.HOST }}
+            user: xeghpcmy
+            # password: ${{ secrets.PASSPHRASE }}
+            key: ${{ secrets.PRIVATE_KEY}}
+          env:
+            CI: true
