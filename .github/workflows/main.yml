@@ -17,7 +17,7 @@ jobs:
             mv glassroom-test/. test-github-deploy-$var
           host: ${{ secrets.HOST }}
           username: xeghpcmy
-          password: ${{ secrets.PASSPHRASE }}
+          # password: ${{ secrets.PASSPHRASE }}
           privateKey: ${{ secrets.PRIVATE_KEY}}
         env:
           CI: true
