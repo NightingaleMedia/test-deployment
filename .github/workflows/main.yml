@@ -10,7 +10,7 @@ jobs:
       - name: Move Files
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: |
+          command:
             - cd public_html
             - mkdir glassroom_archive/test-github-deploy-$(date "+%m-%d-%Y_%H%M") \
             - mv glassroom-test/* glassroom_archive/test-2-github-deploy-$(date "+%m-%d-%Y_%H%M")
