@@ -11,8 +11,8 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: |
-            cd public_html
-            mkdir test-github-deploy-$(date "+%m-%d-%Y_%H%M")
+            cd public_html &&
+            mkdir test-github-deploy-$(date "+%m-%d-%Y_%H%M") &&
             mv glassroom-test/. test-github-deploy-$(date "+%m-%d-%Y_%H%M")
           host: ${{ secrets.HOST }}
           username: xeghpcmy
