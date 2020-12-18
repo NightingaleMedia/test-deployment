@@ -7,17 +7,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ls -a via ssh
-        uses: fifsky/ssh-action@master
-          with:
-            command: |
-              cd public_html
-              var=“$(date + “%m-%d-%Y_%H%M”)”
-              mkdir test-github-deploy-$var
-              mv glassroom-test/. test-github-deploy-$var
-            host: ${{ secrets.HOST }}
-            user: xeghpcmy
-            # password: ${{ secrets.PASSPHRASE }}
-            key: ${{ secrets.PRIVATE_KEY}}
-          env:
-            CI: true
+      - name: Move Files
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            cd public_html
+            var=“$(date + “%m-%d-%Y_%H%M”)”
+            mkdir test-github-deploy-$var
+            mv glassroom-test/. test-github-deploy-$var
+          host: ${{ secrets.HOST }}
+          username: xeghpcmy
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
+        env:
+          CI: true
