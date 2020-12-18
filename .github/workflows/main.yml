@@ -12,8 +12,7 @@ jobs:
         with:
           command: |
             cd public_html
-            var=“$(date + “%m-%d-%Y_%H%M”)”
-            mkdir test-github-deploy-$var
+            mkdir test-github-deploy-$(date "+%m-%d-%Y_%H%M")
             mv glassroom-test/. test-github-deploy-$(date "+%m-%d-%Y_%H%M")
           host: ${{ secrets.HOST }}
           username: xeghpcmy
